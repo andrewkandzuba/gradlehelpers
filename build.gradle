@@ -1,0 +1,26 @@
+allprojects {
+    group 'io.openexchange'
+    version '1.0-SNAPSHOT'
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+
+    ext {
+        junitVersion = '4.12'
+    }
+
+    dependencies {
+        compileOnly gradleApi()
+
+        testCompile("junit:junit:${junitVersion}")
+        testCompile gradleApi()
+        testCompile gradleTestKit()
+    }
+}
