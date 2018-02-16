@@ -1,0 +1,29 @@
+.project
+.classpath
+.settings
+.cvsignore
+test-source
+**/target
+**/bin
+**log
+**/etc
+**.orig
+#bamboo creates this file for own purposes
+build-number.txt
+**pom.xml.*
+*.lck
+*.log
+**.bak
+**/rebel.xml
+#IntelliJ IDEA settinds
+atlassian-ide-plugin.xml
+**.idea
+**.iws
+**.ipr
+**/*-db.properties
+.DS_Store
+.gradle
+**activemq-data
+**build
+**out
+**iml

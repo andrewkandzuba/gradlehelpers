@@ -1,0 +1,4 @@
+rootProject.name = 'gradlehelpers'
+
+include "openexchage-gradle-dependencies"
+project(":openexchage-gradle-dependencies").projectDir = file("openexchage-gradle-dependencies")
