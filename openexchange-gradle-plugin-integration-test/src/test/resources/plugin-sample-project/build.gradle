@@ -1,0 +1,15 @@
+buildscript {
+
+    repositories {
+        mavenLocal()
+        flatDir  {
+            dirs "$pathToLocalMaven"
+        }
+    }
+
+    dependencies {
+        classpath name: "openexchage-gradle-plugin-$projectVersion"
+    }
+}
+
+apply plugin: io.openexchange.gradle.plugin.OpenExchangePlugin

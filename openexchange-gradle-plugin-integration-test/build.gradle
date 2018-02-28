@@ -1,0 +1,21 @@
+dependencies {
+    testCompile project(":openexchage-gradle-plugin")
+    testCompile gradleTestKit()
+    testCompile("commons-io:commons-io:$apacheCommonsIOVersion")
+}
+
+ext {
+    pathToLocalMaven = "${projectDir}/build/.m2/repositories"
+}
+
+task copyDependencies(type: Copy) {
+    from configurations.testRuntime
+    into new File("${pathToLocalMaven}")
+}
+
+assemble.finalizedBy(copyDependencies)
+
+tasks.withType(Test) {
+    systemProperty "pathToLocalMaven", new File("${pathToLocalMaven}").path
+    systemProperty "projectVersion", new File("${project.version}").path
+}

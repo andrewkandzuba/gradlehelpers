@@ -14,12 +14,16 @@ subprojects {
 
     ext {
         junitVersion = '4.12'
+        mockitoVersion = '2.15.0'
+        apacheCommonsIOVersion = '2.6'
     }
 
     dependencies {
         compileOnly gradleApi()
 
         testCompile("junit:junit:${junitVersion}")
+        testCompile("org.mockito:mockito-core:${mockitoVersion}")
+
         testCompile gradleApi()
         testCompile gradleTestKit()
     }
