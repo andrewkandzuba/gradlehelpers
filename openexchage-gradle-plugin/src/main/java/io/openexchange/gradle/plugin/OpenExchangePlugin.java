@@ -1,14 +1,15 @@
 package io.openexchange.gradle.plugin;
 
+import io.openexchange.gradle.plugin.tasks.GreetingTask;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 
 /**
  * Common entry point to dependency management Gradle helper tasks.
  */
-public class DependenciesManagementPlugin implements Plugin<Project> {
+public class OpenExchangePlugin implements Plugin<Project> {
 
-    private static final String HELLO_DEPENDENCIES_TASK = "dependenciesHello";
+    public static final String HELLO_DEPENDENCIES_TASK = "dependenciesHello";
 
     /**
      * Heath check.
@@ -17,7 +18,6 @@ public class DependenciesManagementPlugin implements Plugin<Project> {
      */
     @Override
     public void apply(Project project) {
-        project.task(HELLO_DEPENDENCIES_TASK)
-                .doLast(a -> System.out.println("Hello from " + this.getClass().getCanonicalName()));
+        project.getTasks().create(HELLO_DEPENDENCIES_TASK, GreetingTask.class, task -> task.setMessage("Hello from OpenExchangePlugin"));
     }
 }
